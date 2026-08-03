@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FAQs - HSRP Portal</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; background: #f5f7fb; }
+.fade { animation: fade .3s ease; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 800px;
+    padding-bottom: 1.5rem;
+}
+
+.accordion-item.active .chevron {
+    transform: rotate(180deg);
+}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- NAVIGATION -->
+<nav class="bg-white border-b border-gray-100 sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">H</div>
+                <div>
+                    <h1 class="text-xl font-bold text-gray-900 leading-tight">HSRP</h1>
+                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Official Portal</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition">Home</a>
+                <a href="aboutus.html" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition">About Us</a>
+                <a href="faqs.html" class="text-sm font-bold text-blue-600">FAQs</a>
+                <a href="ContactUs.html" class="text-sm font-bold text-gray-500 hover:text-blue-600 transition">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-4xl mx-auto p-4 md:p-12">
+    <div class="text-center mb-12 fade">
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Frequently Asked Questions</h2>
+        <p class="text-gray-500 font-medium max-w-2xl mx-auto">Get answers to all your queries regarding High Security Registration Plates (HSRP).</p>
+    </div>
+
+    <div id="faqContainer" class="space-y-4 fade">
+        <!-- FAQs will be injected here for cleaner code -->
+    </div>
+
+    <!-- Still Have Questions? -->
+    <div class="mt-16 bg-blue-600 rounded-[40px] p-8 md:p-12 text-center text-white shadow-xl shadow-blue-200 fade">
+        <h3 class="text-2xl font-bold mb-2">Still have questions?</h3>
+        <p class="text-blue-100 mb-8 font-medium">Can't find the answer you're looking for? Our team is available 24/7.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="ContactUs.html" class="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold hover:bg-blue-50 transition shadow-lg">Contact Support</a>
+            <button onclick="window.location.href='index.html'" class="bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold hover:bg-blue-800 transition">Book HSRP Now</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const faqs = [
+    { q: "What is HSRP?", a: "HSRP stands for High Security Registration Plate. It is a government-mandated number plate made of aluminum with security features like a hologram and laser branding." },
+    { q: "Is HSRP mandatory for old vehicles?", a: "Yes, the Ministry of Road Transport and Highways (MoRTH) has made HSRP mandatory for all vehicles registered before April 2019." },
+    { q: "How can I book HSRP online?", a: "You can book via our portal by entering your registration number, chassis number, and engine number on the home page." },
+    { q: "What are the security features of HSRP?", a: "It includes a chromium-based hologram, a unique laser-branded serial number, 'INDIA' script, and non-removable snap locks." },
+    { q: "Can I get HSRP delivered to my home?", a: "Yes, home delivery is available in selected cities. You can check the eligibility by entering your Pincode during booking." },
+    { q: "What is a Color Coded Sticker?", a: "It's a sticker that indicates the fuel type of the vehicle. Blue for Petrol/CNG, Orange for Diesel, etc." },
+    { q: "How do I track my HSRP order status?", a: "Use the Reference ID (HSRP-XXXXXX) provided after booking in our AI Chat Support 'Sameer' on the home page." },
+    { q: "What documents are required for HSRP booking?", a: "No physical documents are needed to be uploaded. You only need the details from your vehicle's Registration Certificate (RC)." },
+    { q: "Can I reschedule my appointment?", a: "Yes, rescheduling is allowed once. You can do it via the 'Reschedule' section on the portal." },
+    { q: "Is the HSRP fitment free?", a: "The fitment charges are included in the total booking amount paid online. No extra payment should be made at the center." },
+    { q: "What if my HSRP is damaged?", a: "You need to apply for a replacement plate by selecting the 'Replacement' option on the portal." },
+    { q: "Can I cancel my HSRP order?", a: "Yes, cancellation is possible within 24 hours of booking for a full refund." },
+    { q: "What if I lose my Reference ID?", a: "You can retrieve it using your mobile number and registration number through the 'Forgot Ref ID' link or chat support." },
+    { q: "How long does it take to get HSRP?", a: "Usually, it takes 7-10 working days from the date of booking for the plate to be ready for fitment." },
+    { q: "What happens if I don't install HSRP?", a: "Driving without HSRP can lead to heavy fines as per the Motor Vehicles Act." },
+    { q: "Is it mandatory for Electric Vehicles?", a: "Yes, HSRP is mandatory for EVs as well, typically with a green background plate." },
+    { q: "Can I change my fitment center after booking?", a: "No, the fitment center cannot be changed once the order is processed. Please choose carefully." },
+    { q: "Who provides the snap locks?", a: "The fitment center provides and installs the non-removable snap locks with the HSRP." },
+    { q: "What is the fee for HSRP?", a: "The fee varies depending on the vehicle class (Two-wheeler vs Four-wheeler) and state taxes." },
+    { q: "Do I need to visit the RTO for HSRP?", a: "No, you can get it fitted at authorized dealer points or via home delivery." },
+    { q: "Can I transfer HSRP to another vehicle?", a: "No, HSRP is unique to a specific vehicle and cannot be transferred." },
+    { q: "What if the details on my RC don't match the portal?", a: "Please contact your local RTO to update the VAHAN database before booking HSRP." },
+    { q: "Is HSRP mandatory for commercial vehicles?", a: "Yes, it is mandatory for all private and commercial vehicles." },
+    { q: "Will I get an invoice for my payment?", a: "Yes, a digital receipt and invoice are generated immediately after a successful payment." },
+    { q: "What is the validity of the Color Coded Sticker?", a: "The sticker has the same validity as your HSRP as long as it remains legible." },
+    { q: "How can I verify if my HSRP is genuine?", a: "Genuine HSRP has a laser-etched 10-digit serial number and a hot-stamped 'INDIA' film." },
+    { q: "What if my vehicle is from another state?", a: "You must book HSRP for the state where the vehicle is registered." },
+    { q: "Can I book only the sticker?", a: "Yes, if you already have HSRP, you can book only the color-coded sticker separately." },
+    { q: "Is home fitment safe?", a: "Yes, fitment is done by trained professionals following all safety protocols." },
+    { q: "Do I need to pay the dealer for fitment?", a: "No, the fitment fee is already included in your online payment." },
+    { q: "What should I carry to the fitment center?", a: "Carry a printout of your appointment receipt and your vehicle's RC." },
+    { q: "Can someone else take my vehicle for fitment?", a: "Yes, as long as they have the appointment receipt and the vehicle's RC." },
+    { q: "How many stickers do I get for a car?", a: "One color-coded sticker to be pasted on the top-left corner of the windshield." },
+    { q: "What is the size of HSRP for a car?", a: "Standard size is 500x120 mm for the rear and front." },
+    { q: "What if I sold my vehicle but haven't transferred it?", a: "The new owner should get the name transfer done on RC first, then book HSRP." },
+    { q: "Is HSRP required for trailers?", a: "Yes, any vehicle with a registration number needs HSRP." },
+    { q: "Can I get HSRP on the same day?", a: "No, plates are laser-engraved at a centralized facility and shipped to dealers." },
+    { q: "What if my payment failed but money was deducted?", a: "The amount will be automatically refunded by your bank within 5-7 working days." },
+    { q: "Are there any hidden charges?", a: "No, all charges like convenience fees and GST are shown at the final checkout." },
+    { q: "Can I book HSRP for a scrapped vehicle?", a: "No, HSRP can only be booked for active vehicle registrations." }
+];
+
+function initFAQs() {
+    const container = document.getElementById('faqContainer');
+    faqs.forEach((faq, index) => {
+        const item = document.createElement('div');
+        item.className = 'accordion-item bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden transition-all hover:shadow-md';
+        item.innerHTML = `
+            <button onclick="toggleAccordion(this)" class="w-full flex items-center justify-between p-6 text-left outline-none group">
+                <span class="font-bold text-gray-900 md:text-lg group-hover:text-blue-600 transition-colors">${index + 1}. ${faq.q}</span>
+                <svg class="chevron w-6 h-6 text-gray-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            <div class="accordion-content px-6">
+                <p class="text-gray-600 leading-relaxed font-medium">${faq.a}</p>
+            </div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    document.querySelectorAll('.accordion-item').forEach(otherItem => {
+        otherItem.classList.remove('active');
+    });
+
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
+
+// Initialize on load
+window.onload = initFAQs;
+</script>
+
+</body>
+</html>
